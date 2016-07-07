@@ -21,3 +21,34 @@
     width: 100%;
     padding-bottom: 15px;
 }
+
+.ui-face {
+    max-height: 35px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    font-size: 14px;
+}
+
+.interaction .spacing {
+    margin-bottom: 30px;
+}
+
+.date-flag {
+    height: 150px;
+    background-color: #4caf50;
+    top: -35px;
+    position: relative;
+    webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.date-span {
+    color: #ffffff;
+    padding-top: 25px;
+}

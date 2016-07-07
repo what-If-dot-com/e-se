@@ -1,4 +1,4 @@
 angular.module("e-se")
-    .factory('Usuario',function($mongolabResourceHttp){
-        return $mongolabResourceHttp('users');
+    .factory('Usuarios',function($mongolabResourceHttp){
+        return $mongolabResourceHttp('usuarios');
     });
