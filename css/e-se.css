@@ -52,3 +52,9 @@
     color: #ffffff;
     padding-top: 25px;
 }
+
+.resultado-btn {
+    padding: 1px;
+    width: 100%;
+    height: 50px;
+}
