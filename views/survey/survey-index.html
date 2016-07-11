@@ -36,7 +36,8 @@
         </div>
     </nav>
 </header>
-<main class="interaction" style="visibility: visible; animation-duration: 1s; animation-name: fadeIn;">
+<main class="interaction" style="visibility: visible; animation-duration: 1s; animation-name: fadeIn;"
+      ng-init="initIndex()">
     <div class="container">
         <div class="row">
             <div class="col-md-8 pending-surveys">
@@ -45,7 +46,7 @@
                 <div class="list-group">
                     <div class="post-form">
                         <div class="panel panel-default panel-post">
-                            <a ng-click="newSurvey()">
+                            <a class="link-new-survey" ng-click="newSurvey()">
                                 <div class="panel-body">
                                     <h4 class="text-center"><i class="fa fa-pencil-square-o"></i>&nbsp;Escrever nova
                                         pesquisa&nbsp;</h4>
@@ -53,27 +54,22 @@
                             </a>
                         </div>
                     </div>
-                    <div>
+                    <div ng-repeat="pesquisa in pesquisas">
                         <div class="panel">
                             <div class="panel-body">
                                 <div class="col-md-2">
                                     <div class="text-center date-flag">
-                                        <h4 class="date-span"><strong>25/06</strong></h4>
+                                        <h4 class="date-span"><strong>{{pesquisa.criacao | date: "dd/MM"}}</strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-10">
                                     <div class="row">
-                                        <label class="label label-primary">infraestrutura</label>
-                                        <label class="label label-primary">marketing</label>
-                                        <label class="label label-primary">organização</label>
-                                        <label class="label label-primary">segurança</label>
+                                        <label ng-repeat="tag in pesquisa.tags"
+                                               class="label label-primary label-as-badge label-survey">{{tag}}</label>
                                     </div>
                                     <div class="row">
-                                        <h3>e se .. tivessemos áreas de entretenimento para poder relaxar.</h3>
-                                        <h4>Sausage pork belly pancetta, ham hock tail ground round meatloaf fatback
-                                            salami flank. Jerky cupim tenderloin filet mignon prosciutto. Bresaola
-                                            shoulder pig shank meatloaf. Ham hock pork loin leberkas, boudin turkey
-                                            brisket shank pork belly bacon chuck ball tip.</h4>
+                                        <h3>e se .. {{pesquisa.titulo}}</h3>
+                                        <h4>{{pesquisa.texto}}</h4>
                                     </div>
                                     <div class="row">
                                         <button class="btn btn-lg btn-danger"><i
@@ -87,115 +83,18 @@
                         </div>
                         <div class="spacing"></div>
                     </div>
-
-                    <div>
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="col-md-2">
-                                    <div class="text-center date-flag">
-                                        <h4 class="date-span"><strong>20/06</strong></h4>
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="row">
-                                        <label class="label label-primary">infraestrutura</label>
-                                        <label class="label label-primary">marketing</label>
-                                    </div>
-                                    <div class="row">
-                                        <h3>e se .. pudessemos levar maquinas de café expresso ou fazer compra coletiva
-                                            delas.</h3>
-                                        <h4>Biltong tenderloin jerky shank. Chuck doner tenderloin rump pork belly,
-                                            tongue hamburger. Picanha alcatra kevin, flank shank prosciutto
-                                            biltong.</h4>
-                                    </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-danger"><i
-                                                class="glyphicon glyphicon-thumbs-down"></i>&nbsp;Ruim
-                                        </button>
-                                        <button class="btn btn-lg btn-success pull-right">Boa idéia&nbsp;<i
-                                                class="glyphicon glyphicon-thumbs-up"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacing"></div>
-                    </div>
-
-                    <div>
-                        <div class="panel">
-                            <div class="panel-body">
-                                <div class="col-md-2">
-                                    <div class="text-center date-flag">
-                                        <h4 class="date-span"><strong>19/06</strong></h4>
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="row">
-                                        <label class="label label-primary">infraestrutura</label>
-                                    </div>
-                                    <div class="row">
-                                        <h3>e se .. tivessemos crachas usando RFID.</h3>
-                                        <h4>Tri-tip sirloin rump, turkey shankle jowl brisket porchetta t-bone tongue
-                                            tail pork strip steak ball tip. Brisket capicola t-bone, kielbasa pig
-                                            pastrami salami rump fatback jerky bresaola pork loin chicken filet mignon
-                                            cupim.</h4>
-                                    </div>
-                                    <div class="row">
-                                        <button class="btn btn-lg btn-danger"><i
-                                                class="glyphicon glyphicon-thumbs-down"></i>&nbsp;Ruim
-                                        </button>
-                                        <button class="btn btn-lg btn-success pull-right">Boa idéia&nbsp;<i
-                                                class="glyphicon glyphicon-thumbs-up"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacing"></div>
-                    </div>
-
                 </div>
             </div>
             <div class="col-md-4">
                 <h4 class="text-uppercase">Pesquisas passadas</h4>
 
                 <div class="list-group">
-                    <div class="list-group-item">
+                    <div class="list-group-item" ng-repeat="pesquisaPassada in pesquisasPassadas">
                         <div class="media">
                             <div class="media-body">
-                                <small>17 de abril</small>
+                                <small>{{pesquisaPassada.criacao | date: "dd MMM"}}</small>
                                 <h4 class="media-heading">
-                                    e se .. os pcs dos funcionarios fossem pré-definidos de acordo com perfis, e sempre
-                                    atualizados
-                                </h4>
-
-                                <div class="resultado-btn">
-                                    <button class="btn btn-lg btn-default pull-right">Ver resultado</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacing"></div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="media">
-                            <div class="media-body">
-                                <small>14 de abril</small>
-                                <h4 class="media-heading">
-                                    e se .. os resultados da empresa fossem dados abertos
-                                </h4>
-
-                                <div class="resultado-btn">
-                                    <button class="btn btn-lg btn-default pull-right">Ver resultado</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spacing"></div>
-                    </div>
-                    <div class="list-group-item">
-                        <div class="media">
-                            <div class="media-body">
-                                <small>10 de abril</small>
-                                <h4 class="media-heading">
-                                    e se .. cursos fora fossem reembolsados
+                                    e se .. {{pesquisaPassada.titulo}}
                                 </h4>
 
                                 <div class="resultado-btn">

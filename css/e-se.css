@@ -58,3 +58,31 @@
     width: 100%;
     height: 50px;
 }
+
+.link-new-survey {
+    cursor: pointer;
+}
+
+.link-new-survey:hover {
+    text-decoration: none;
+}
+
+.link-new-survey:hover div {
+    text-decoration: none;
+    background: #4caf50;
+}
+
+.link-new-survey:hover h4 {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.label-survey {
+    margin-right: 5px;
+}
+
+.label-as-badge {
+    padding-right: .6em;
+    padding-left: .6em;
+    border-radius: 10rem;
+}
